@@ -1,7 +1,3 @@
-from pathlib import Path
-import numpy as np
-
-
 if __name__ == '__main__':
     outfile_path = r'C:\Users\David Hunter\OneDrive\Northeastern Classes\Graduate\Computer Architecture\Homework4\PartA'
     block_size = 64 # Bytes
@@ -19,11 +15,11 @@ if __name__ == '__main__':
     for instruction in range(cache_size, 2*cache_size, block_size):
         file.write(f'2 {hex(instruction)}    \n') # Miss
         file.write(f'2 {hex(instruction)}    \n') # Hit
-    for instruction in range(cache_size, 2*cache_size, block_size):
+    for instruction in range(2*cache_size, 3*cache_size, block_size):
         file.write(f'2 {hex(instruction)}    \n') # Miss
         file.write(f'2 {hex(instruction)}    \n') # Hit
 
         # 3 Memory address values per line used, revert to first memory address
-    for instruction in range(0, cache_size, block_size):
-        file.write(f'2 {hex(instruction)}    \n') # Miss
+    for instruction in range(2*cache_size, 3*cache_size, block_size):
+        file.write(f'2 {hex(instruction)}    \n') # Hit
     file.close()
